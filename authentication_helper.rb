@@ -28,7 +28,7 @@ def check_key_existence
       File.open("key.txt", mode = "w"){|f|
         f.write(digest(inputed_key))
       }
-      ::ActiveSupport::MessageEncryptor.new(change_password_32bytes(inputed_key), cipher: 'aes-256-cbc')
+      
     else
       puts "Please type your key."
       while true do
@@ -45,26 +45,8 @@ def check_key_existence
           break
         end
       end
-      ::ActiveSupport::MessageEncryptor.new(change_password_32bytes(inputed_key), cipher: 'aes-256-cbc')
     end
+    puts "NOTICE: OK."
+    ::ActiveSupport::MessageEncryptor.new(change_password_32bytes(inputed_key), cipher: 'aes-256-cbc')
   }
 end
-
-# def check_key
-#   puts "Please type your key."
-#   while true do
-#     print ">"
-#     inputed_key = gets.chomp
-#     key_digest = ""
-#     File.open("key.txt"){|f|
-#       key_digest = f.gets
-#     }
-#     if key_digest != digest(inputed_key)
-#       puts "ERROR: Please type your correct key."
-#       next
-#     else
-#       break
-#     end
-#   end
-#   ::ActiveSupport::MessageEncryptor.new(change_password_32bytes(inputed_key), cipher: 'aes-256-cbc')
-# end
