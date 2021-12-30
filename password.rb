@@ -3,9 +3,9 @@ require 'active_support/all'
 require 'csv'
 require 'digest/md5'
 
-require './authentication_helper'
-require './command_helper'
-require './csv_helper'
+require './helper/authentication_helper'
+require './helper/command_helper'
+require './helper/csv_helper'
 
 puts <<LOGO
 

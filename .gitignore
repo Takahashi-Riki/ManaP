@@ -1,2 +1,2 @@
-password.csv
-key.txt
+./config/password.csv
+./config/key.txt
