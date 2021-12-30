@@ -66,3 +66,20 @@ Register a new password   : register [service name] [username] [password]
 Delete a existing password: delete  [service name]
 (eg. register FGmail hello@example.com a23s34d)
 ```
+
+## 7.(OPTIONAL)Run from ShellScript.
+
+```
+cd [somewhere you want to move]
+touch password.sh
+vi password.sh
+```
+
+```password.sh
+#!/bin/sh
+
+cd ManaP #Please change the pass to suit your local environment.
+ruby password.rb
+```
+
+Now, You can run password.rb just click password.sh
