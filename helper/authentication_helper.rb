@@ -1,13 +1,16 @@
+# If password is shorter than 32 characters, make it 32characters.
 def change_password_32bytes(password)
   (password.chomp*6)[0..31]
 end
 
+# Make string to digest
 def digest(string)
   Digest::MD5.hexdigest(string)
 end
 
+# Check whether key exist.
 def check_key_existence
-  File.open("key.txt"){|f|
+  File.open("./config/key.txt"){|f|
     key_digest = f.gets
     if key_digest.nil?
       puts <<~MESSAGE
@@ -18,14 +21,14 @@ def check_key_existence
       while true do
         print ">"
         inputed_key = gets.chomp
-        if inputed_key.size < 6
-          puts "ERROR: Key must be at least 6 characters."
+        if inputed_key.size < 6 || inputed_key.size > 32
+          puts "ERROR: Key must be at least 6 characters and less than 33 characters."
           next
         else
           break
         end
       end
-      File.open("key.txt", mode = "w"){|f|
+      File.open("./config/key.txt", mode = "w"){|f|
         f.write(digest(inputed_key))
       }
       
@@ -35,7 +38,7 @@ def check_key_existence
         print ">"
         inputed_key = gets.chomp
         key_digest = ""
-        File.open("key.txt"){|f|
+        File.open("./config/key.txt"){|f|
           key_digest = f.gets
         }
         if key_digest != digest(inputed_key)

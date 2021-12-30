@@ -1,10 +1,12 @@
+# Convert command to hash
 def convert_command(inputed_command_args)
   prepared_command_list = {
     exit: {id:1, necessary_args:0},
     manual: {id:2, necessary_args:0},
-    show: {id:3, necessary_args:0},
-    register: {id:4, necessary_args:3},
-    delete: {id:5, necessary_args:1}}
+    reset: {id:3, necessary_args:1,},
+    show: {id:4, necessary_args:0},
+    register: {id:5, necessary_args:3},
+    delete: {id:6, necessary_args:1}}
   inputed_command = inputed_command_args.split[0]
   inputed_args = inputed_command_args.split[1..]
   return_values = {status: nil, command: nil, message: nil}
