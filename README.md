@@ -16,13 +16,13 @@ I offer the way to use ManaP on Mac.
 Please change the pass to suit your local environment.
 
 ```
-cd ManaP
+cd ./**/**/**/ManaP
 ```
 
-## 4.Run "password.rb"
+## 4.Run "main.rb"
 
 ```
-ruby password.rb
+ruby main.rb
 ```
 
 ## 5.Set up your key
@@ -59,11 +59,12 @@ Q. How to use?
 1. First of all, register your key. Maybe you already have done.
 2. You can manage your passwords with commands. When to type commands English can only be used.
 【Command List】
-Finish using              : exit
-See how to use            : manual
-Show your passwords       : show
-Register a new password   : register [service name] [username] [password]
-Delete a existing password: delete  [service name]
+Finish using                : exit
+See how to use              : manual
+Reset all data              : reset [your key]
+Show your passwords         : show
+Register a new password     : register [service name] [username] [password]
+Delete a existing password  : delete  [service name]
 (eg. register FGmail hello@example.com a23s34d)
 ```
 
@@ -71,15 +72,15 @@ Delete a existing password: delete  [service name]
 
 ```
 cd [somewhere you want to move]
-touch password.sh
-vi password.sh
+touch start_manap.sh
+vi start_manap.sh
 ```
 
-```password.sh
+```start_manap.sh
 #!/bin/sh
 
-cd ManaP #Please change the pass to suit your local environment.
-ruby password.rb
+cd ./**/**/**/ManaP #Please change the pass to suit your local environment.
+ruby main.rb
 ```
 
-Now, You can run password.rb just click password.sh
+Now, You can run main.rb just click start_manap.sh.
